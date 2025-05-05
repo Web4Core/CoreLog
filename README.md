@@ -1,17 +1,13 @@
 # 🤖 CoreLog
 
-CoreLog est un **bot intelligent** développé par **Web4Core**, conçu pour automatiser, assister et améliorer l'expérience utilisateur dans les serveurs Discord.
+CoreLog est un **bot intelligent** développé par **Web4Core**,
 
 ## 🔧 Fonctions principales
 
-- 📋 Gestion de logs (actions modération, connexions, etc.)
-- 🛡️ Commandes de modération (ban, kick, mute, etc.)
-- 📢 Système d'annonces automatisées
-- 🎯 Réponses personnalisées et auto-réactions
-- ⚙️ Configuration simple via commandes
+- Reponses rapide
+- Informations sur Corelog
 
 ## 🎨 Identité visuelle
-
 Palette de couleurs :
 - **Fond** : `#121212` (noir)
 - **Accent (logo, détails)** : `#39ff14` (vert néon)
@@ -20,11 +16,10 @@ Palette de couleurs :
 
 ## 🧱 Stack utilisée
 
-- **Langage** : JavaScript / Node.js
-- **Librairie** : `discord.js`
-- **Hébergeur** : (Railway, Replit, VPS… ?)
+- **Langage** : HTML,CSS,JS
+- **Hébergeur** : (Netlify)
 
 ## 🚀 Lancer le bot
 
 
-corelog.netlify.app
+https://corelog.netlify.app
