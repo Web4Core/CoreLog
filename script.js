@@ -22,53 +22,66 @@ function addMessage(text, sender) {
 
 function botResponse(userMsg) {
   const msg = userMsg.toLowerCase();
-
   let response = "Hmm... je capte pas encore cette question 😅 Essaye autrement.";
 
-  // Liste de réponses simples
-  if (msg.includes("bonjour") || msg.includes("salut")) {
-    response = "Yo 👋 ! Bienvenue sur CoreLog.";
-  } else if (msg.includes("comment ça va") || msg.includes("ça va ?")) {
-    response = "Toujours au top ! Et toi ?";
-  } else if (msg.includes("qui es-tu")) {
-    response = "Je suis CoreBot, le bot de l'app CoreLog 🔥.";
-  } else if (msg.includes("corelog")) {
-    response = "CoreLog, c’est une app de gestion de logs stylée, dark et efficace !";
-  } else if (msg.includes("aide") || msg.includes("help")) {
-    response = "Tu peux me poser des questions sur CoreLog, l’équipe, les commandes, etc.";
-  } else if (msg.includes("merci")) {
-    response = "Avec plaisir 😉";
-  } else if (msg.includes("site web")) {
-    response = "Le site est en cours de dev par Web4Core. Reste connecté !";
-  } else if (msg.includes("github")) {
-    response = "Le GitHub sera bientôt public 🔧.";
-  } else if (msg.includes("web4core")) {
-    response = "Web4Core est l'équipe derrière CoreLog. Solide 💪.";
-  } else if (msg.includes("ton créateur") || msg.includes("qui t'a créé")) {
-    response = "Je suis né grâce à Enzo, le boss de Web4Core 😎.";
-  } else if (msg.includes("fonctionnalités")) {
-    response = "CoreLog permet de logger des événements, gérer des discussions et plus encore.";
-  } else if (msg.includes("mode dark") || msg.includes("dark mode")) {
-    response = "C’est mon style préféré 🖤. Full dark avec une touche néon.";
-  } else if (msg.includes("langage") || msg.includes("technologie")) {
-    response = "HTML, CSS, JS pour l'interface. Backend à venir 💾.";
-  } else if (msg.includes("admin") || msg.includes("fondateur")) {
-    response = "Le fondateur, c’est Enzo 👑.";
-  } else if (msg.includes("discord")) {
-    response = "Le serveur s'appelle Web4Core Hub. Rejoins-nous !";
-  } else if (msg.includes("bot")) {
-    response = "C’est moi 🤖. Je suis ici pour t’aider.";
-  } else if (msg.includes("connexion") || msg.includes("login")) {
-    response = "La page de connexion arrive très bientôt !";
-  } else if (msg.includes("dashboard")) {
-    response = "Le tableau de bord est en cours de design. Tu vas kiffer.";
-  } else if (msg.includes("inscription") || msg.includes("register")) {
-    response = "Pas encore dispo, mais ça arrive très vite ⚙️.";
-  } else if (msg.includes("version") || msg.includes("v")) {
-    response = "Actuellement en version 0.1 (démo dev).";
+  const match = (variants) => variants.some(v => msg.includes(v));
+
+  try {
+    // Calcul mathématique
+    if (/^[0-9+\-*/().\s]+$/.test(userMsg)) {
+      response = `Résultat : ${eval(userMsg)}`;
+    } else if (match(["bonjour", "salut", "yo", "coucou"])) {
+      response = "Yo 👋 ! Bienvenue sur W4Bot.";
+    } else if (match(["comment ça va", "ça va ?", "tu vas bien"])) {
+      response = "Toujours au top ! Et toi ?";
+    } else if (match(["qui es-tu", "t'es qui", "t'es quoi", "c'est quoi ce bot"])) {
+      response = "Je suis W4Bot, l’assistant de la team W4Pulse. Je suis là pour t’aider ou taper la discute 👾";
+    } else if (match(["w4pulse", "c’est quoi ce site", "site web", "tu sers à quoi", "explique-moi ce site"])) {
+      response = "W4Pulse est la team qui m’a créé. Moi, je suis là pour t’aider sur le site.";
+    } else if (match(["aide", "help", "je suis perdu", "besoin d’aide"])) {
+      response = "Tu peux me poser des questions simples pour l’instant. Tape ‘menu’ pour voir ce que je comprends !";
+    } else if (match(["merci", "thanks", "thx"])) {
+      response = "Avec plaisir 😉";
+    } else if (match(["github"])) {
+      response = "Le GitHub sera bientôt public 🔧.";
+    } else if (match(["ton créateur", "qui t'a créé", "créé par", "qui t’a fait"])) {
+      response = "Je suis né grâce à Enzo, le boss de W4Pulse 😎.";
+    } else if (match(["fonctionnalités", "tu fais quoi", "ce que tu sais faire"])) {
+      response = "Je peux répondre à certaines questions et faire des calculs simples. Tape ‘menu’ pour plus.";
+    } else if (match(["mode dark", "dark mode", "thème sombre"])) {
+      response = "C’est mon style préféré 🖤. Full dark avec une touche néon.";
+    } else if (match(["langage", "technologie", "tech utilisé"])) {
+      response = "HTML, CSS, JS. Full Front baby 💻.";
+    } else if (match(["admin", "fondateur", "proprio", "créateur"])) {
+      response = "Le fondateur, c’est Enzo Izinga 👑.";
+    } else if (match(["discord"])) {
+      response = "Le serveur s'appelle W4Pulse Hub. Il est en cours de dev !";
+    } else if (match(["bot"])) {
+      response = "C’est moi 🤖. Je suis ici pour t’aider.";
+    } else if (match(["version", "v ", "v.", "tu es en quelle version"])) {
+      response = "Actuellement en version 0.2 🚧.";
+    } else if (match(["c’est payant", "je dois payer", "c’est gratos", "c’est gratuit"])) {
+      response = "Pour l’instant, c’est 100% gratuit. Profite pendant que c’est open 😎";
+    } else if (match(["blague", "raconte un truc marrant", "fais moi rire"])) {
+      response = "Pourquoi les développeurs détestent la nature ? Parce qu’il y a trop de bugs 🐛🌳";
+    } else if (match(["tu parles français", "tu comprends le français", "français ?"])) {
+      response = "Bien sûr que je parle français, gros 😎";
+    }
+  } catch (err) {
+    response = "Oups, erreur dans le calcul 😅 Essaye un truc plus simple.";
   }
 
   setTimeout(() => {
     addMessage(response, 'bot');
-  }, 500);
+  }, 200);
 }
+
+function updateHeure() {
+  const maintenant = new Date();
+  const heure = maintenant.toLocaleTimeString();
+  document.getElementById("heure").textContent = heure;
+}
+
+setInterval(updateHeure, 1000)
+
+updateHeure();

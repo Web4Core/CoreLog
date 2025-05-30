@@ -1,10 +1,10 @@
 :root {
-  --background: #121212;
-  --accent: #39ff14;
-  --secondary: #2e2e2e;
+  --background: #000000;
+  --accent: #145eff;
+  --secondary: linear-gradient(to right, blue, white);
   --text: #ffffff;
-  --bot: #2e2e2e;
-  --user: #39ff14;
+  --bot: #1900ff;
+  --user: #14efff;
 }
 
 body {
@@ -62,7 +62,7 @@ body {
 }
 
 .message.bot {
-  background-color: green;
+  background-color: rgb(1, 212, 240);
   align-self: flex-start;
 }
 
@@ -102,5 +102,8 @@ body {
 }
 
 .chat-input button:hover {
-  background-color: #2fff10;
+  background-color: #10cfff;
 }
+
+
+
